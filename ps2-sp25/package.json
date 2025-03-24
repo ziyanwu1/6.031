@@ -1,0 +1,43 @@
+{
+  "name": "ps2",
+  "private": true,
+  "type": "commonjs",
+  "engines": {
+    "node": "^22.12.x"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "lint": "tsc && eslint . --ext .ts",
+    "test": "tsc || exit ; eslint . --ext .ts ; mocha --require source-map-support/register dist/test",
+    "coverage": "c8 npm test"
+  },
+  "mocha": {
+    "reporter": "spec",
+    "exit": true
+  },
+  "c8": {
+    "extension": [
+      ".js"
+    ],
+    "exclude": [
+      "coverage/"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.7",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "c8": "^10.1.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-jsdoc": "^50.6.3",
+    "mocha": "^11.0.1",
+    "source-map-support": "^0.5.21",
+    "typescript": "^5.7.3"
+  }
+}
